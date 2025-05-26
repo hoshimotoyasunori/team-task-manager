@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.3, pytest-8.3.5, pluggy-1.6.0
+django: version: 5.2.1, settings: es_app.settings (from option)
+rootdir: /Users/hoshimotoyasunori/Desktop/project/app/backend
+plugins: django-4.11.1
+collected 81 items
+
+api/tests.py ........................................................... [ 72%]
+....................F.                                                   [100%]
+
+=================================== FAILURES ===================================
+_____ ViewSetPermissionEdgeCaseTest.test_property_create_forbidden_for_hq ______
+api/tests.py:821: in test_property_create_forbidden_for_hq
+    self.assertEqual(response.status_code, 403)
+E   AssertionError: 201 != 403
+=========================== short test summary info ============================
+FAILED api/tests.py::ViewSetPermissionEdgeCaseTest::test_property_create_forbidden_for_hq
+================== 1 failed, 80 passed, 7 warnings in 18.65s ===================

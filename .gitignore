@@ -1,0 +1,39 @@
+# Node.js/React
+node_modules/
+build/
+dist/
+.vite/
+
+# Python/Django
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.DS_Store
+.env
+.env.*
+*.log
+*.pot
+*.py[cod]
+*.so
+.coverage
+coverage/
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+
+# VSCode/JetBrains
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# その他
+*.bak
+*.swp 

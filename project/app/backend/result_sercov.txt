@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.3, pytest-8.3.5, pluggy-1.6.0
+django: version: 5.2.1, settings: es_app.settings (from option)
+rootdir: /Users/hoshimotoyasunori/Desktop/project/app/backend
+plugins: django-4.11.1
+collected 71 items
+
+api/tests.py ........................................................... [ 83%]
+............                                                             [100%]
+
+======================= 71 passed, 7 warnings in 15.64s ========================

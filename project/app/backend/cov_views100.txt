@@ -1,0 +1,25 @@
+Name                                           Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------
+api/__init__.py                                    0      0   100%
+api/admin.py                                      22      0   100%
+api/apps.py                                        4      0   100%
+api/migrations/0001_initial.py                     8      0   100%
+api/migrations/0002_owner.py                       6      0   100%
+api/migrations/0003_company.py                     4      0   100%
+api/migrations/0004_property.py                    5      0   100%
+api/migrations/0005_constructiontype.py            4      0   100%
+api/migrations/0006_case.py                        6      0   100%
+api/migrations/0007_estimate_estimateitem.py       6      0   100%
+api/migrations/0008_contract_contractitem.py       6      0   100%
+api/migrations/0009_surveyrecord.py                6      0   100%
+api/migrations/0010_reportrecord.py                6      0   100%
+api/migrations/0011_schedule.py                    6      0   100%
+api/migrations/0012_businessalliance.py            5      0   100%
+api/migrations/__init__.py                         0      0   100%
+api/models.py                                    201      0   100%
+api/serializers.py                                68      0   100%
+api/tests.py                                     648      1    99%   232
+api/urls.py                                       16      0   100%
+api/views.py                                     147     13    91%   81, 110-115, 134-139
+----------------------------------------------------------------------------
+TOTAL                                           1174     14    99%

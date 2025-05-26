@@ -1,0 +1,16 @@
+[INFO][m Initializing environment for https://github.com/psf/black.
+[INFO][m Initializing environment for https://github.com/PyCQA/isort.
+[43;30m[WARNING][m repo `https://github.com/PyCQA/isort` uses deprecated stage names (commit, merge-commit, push) which will be removed in a future version.  Hint: often `pre-commit autoupdate --repo https://github.com/PyCQA/isort` will fix this.  if it does not -- consider reporting an issue to that repo.
+[INFO][m Initializing environment for https://github.com/pycqa/flake8.
+[INFO][m Installing environment for https://github.com/psf/black.
+[INFO][m Once installed this environment will be reused.
+[INFO][m This may take a few minutes...
+[INFO][m Installing environment for https://github.com/PyCQA/isort.
+[INFO][m Once installed this environment will be reused.
+[INFO][m This may take a few minutes...
+[INFO][m Installing environment for https://github.com/pycqa/flake8.
+[INFO][m Once installed this environment will be reused.
+[INFO][m This may take a few minutes...
+black................................................(no files to check)[46;30mSkipped[m
+isort................................................(no files to check)[46;30mSkipped[m
+flake8...............................................(no files to check)[46;30mSkipped[m
