@@ -3,9 +3,9 @@ from .models import Task, Project
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'assignee', 'creator', 'due_date', 'status', 'created_at')
-    list_filter = ('status', 'due_date', 'assignee')
-    search_fields = ('title', 'description')
+    list_display = ('id', 'title', 'status', 'assignee', 'creator', 'created_at', 'updated_at')
+    list_filter = ('status', 'assignee', 'creator', 'created_at')
+    search_fields = ('title', 'description', 'assignee__username', 'creator__username')
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):

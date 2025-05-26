@@ -1,5 +1,7 @@
 Django==5.2.1
-djangorestframework
-djangorestframework-simplejwt
-django-cors-headers
+# バージョン固定
+djangorestframework==3.16.0
+djangorestframework-simplejwt==5.5.0
+django-cors-headers==4.7.0
+drf-spectacular==0.27.1
 gunicorn
