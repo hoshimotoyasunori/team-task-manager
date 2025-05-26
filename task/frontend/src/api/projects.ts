@@ -1,7 +1,7 @@
-const API_URL = 'http://localhost:8000/api/projects/';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
 
 export async function fetchProjects(token: string) {
-  const res = await fetch(API_URL, {
+  const res = await fetch(`${API_BASE_URL}/api/projects/`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) {

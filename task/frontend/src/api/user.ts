@@ -1,5 +1,7 @@
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
+
 export async function fetchUserMe(token: string) {
-  const response = await fetch('http://localhost:8000/api/me/', {
+  const response = await fetch(`${API_BASE_URL}/api/me/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -11,7 +13,7 @@ export async function fetchUserMe(token: string) {
 }
 
 export async function getUsers(token: string) {
-  const response = await fetch('http://localhost:8000/api/users/', {
+  const response = await fetch(`${API_BASE_URL}/api/users/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -23,7 +25,7 @@ export async function getUsers(token: string) {
 }
 
 export async function fetchUserProfile(token: string) {
-  const response = await fetch('http://localhost:8000/api/users/me/', {
+  const response = await fetch(`${API_BASE_URL}/api/users/me/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -35,7 +37,7 @@ export async function fetchUserProfile(token: string) {
 }
 
 export async function updateUserProfile(token: string, data: any) {
-  const response = await fetch('http://localhost:8000/api/users/me/', {
+  const response = await fetch(`${API_BASE_URL}/api/users/me/`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -49,7 +51,7 @@ export async function updateUserProfile(token: string, data: any) {
 }
 
 export async function changePassword(token: string, current_password: string, new_password: string) {
-  const response = await fetch('http://localhost:8000/api/users/me/change_password/', {
+  const response = await fetch(`${API_BASE_URL}/api/users/me/change_password/`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -65,7 +67,7 @@ export async function changePassword(token: string, current_password: string, ne
 }
 
 export async function fetchNotifications(token: string) {
-  const response = await fetch('http://localhost:8000/api/notifications/', {
+  const response = await fetch(`${API_BASE_URL}/api/notifications/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -77,7 +79,7 @@ export async function fetchNotifications(token: string) {
 }
 
 export async function fetchActivityLogs(token: string) {
-  const response = await fetch('http://localhost:8000/api/users/me/activity/', {
+  const response = await fetch(`${API_BASE_URL}/api/users/me/activity/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
