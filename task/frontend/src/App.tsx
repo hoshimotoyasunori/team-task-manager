@@ -301,8 +301,9 @@ const App: React.FC = () => {
   React.useEffect(() => {
     if (isLoggedIn) {
       const token = localStorage.getItem('accessToken');
+      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
       if (token) {
-        fetch('http://localhost:8000/api/me/', {
+        fetch(`${API_BASE_URL}/api/me/`, {
           headers: { 'Authorization': `Bearer ${token}` },
         })
           .then(res => res.ok ? res.json() : null)
