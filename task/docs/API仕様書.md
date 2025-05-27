@@ -1,4 +1,4 @@
-# API仕様書
+# API仕様書（最新版）
 
 ## ユーザー関連
 
@@ -39,11 +39,24 @@
 
 ### タスク一覧
 - GET `/api/tasks/`
-- response: [ { ... } ]
+- response: [ { id, title, description, status, assignee, creator, start_date, end_date, ... } ]
 
 ### タスク作成
 - POST `/api/tasks/`
-- body: { ... }
+- body: { title, description, status, assignee, start_date, end_date, ... }
 - response: { ... }
+
+### タスク編集
+- PUT `/api/tasks/{id}/`
+- body: { ... }
+
+### タスク削除
+- DELETE `/api/tasks/{id}/`
+
+### プロジェクト一覧
+- GET `/api/projects/`
+
+### ユーザー一覧
+- GET `/api/users/`
 
 ...（必要に応じて追記）... 
