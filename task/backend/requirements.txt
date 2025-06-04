@@ -7,3 +7,4 @@ drf-spectacular==0.27.1
 gunicorn
 Pillow>=11.0.0
 whitenoise
+python-dotenv

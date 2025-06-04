@@ -147,6 +147,7 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://team-task-manager-t7rj.vercel.app",
 ]
 
 AUTH_USER_MODEL = 'users.User'
