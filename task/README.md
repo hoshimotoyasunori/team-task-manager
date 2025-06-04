@@ -1,9 +1,15 @@
 # 情報共有app（パーソナルタスク管理Webアプリ）
 
 ## 概要
-チームや個人のタスクを直感的に管理・共有できるWebアプリです。
+チームや個人のタスクを直感的に管理・共有できるWebアプリです。  
+**バックエンド：Django REST Framework**  
+**フロントエンド：React（TypeScript）**
 
-## ディレクトリ構成
+---
+
+
+## 1. ディレクトリ構成
+
 ```
 backend/    # Django REST Framework（APIサーバ）
 frontend/   # React（TypeScript）
@@ -11,13 +17,170 @@ docs/       # ドキュメント類
 docker/     # Docker関連ファイル（任意）
 ```
 
-## セットアップ（例）
-1. `backend/` でDjangoプロジェクト初期化
-2. `frontend/` でReact + TypeScriptプロジェクト初期化
-3. 必要に応じてDockerやDBのセットアップ
+---
 
-## 開発の流れ
-- 要件定義・設計 → 実装 → テスト → リリース → フィードバック・機能追加
+## 2. 初回セットアップ
+
+### バックエンド
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser  # 管理者ユーザー作成
+```
+
+### フロントエンド
+
+```bash
+cd ../frontend
+npm install
+```
+
+### Docker利用時（任意）
+
+```bash
+cd ../docker
+docker-compose up --build
+```
+
+---
+
+## 3. 開発・起動方法
+
+### バックエンド
+
+```bash
+cd backend
+source venv/bin/activate
+python manage.py runserver
+```
+
+### フロントエンド
+
+```bash
+cd frontend
+npm start
+```
+- ブラウザで http://localhost:3000 にアクセス
+
+---
+
+## 4. API利用例
+
+### タスク一覧取得
+
+```bash
+curl http://localhost:8000/api/tasks/
+```
+
+### タスク新規作成
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"title": "テストタスク", "creator": 1}' http://localhost:8000/api/tasks/
+```
+
+### ユーザー登録
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"username": "newuser", "email": "newuser@example.com", "password": "password123"}' http://localhost:8000/api/register/
+```
+
+---
+
+## 5. 認証（JWT）
+
+- トークン取得・リフレッシュ・認証付きAPIリクエスト例を記載
+- JWTの有効期限やリフレッシュ仕様は`backend/config/settings.py`を参照
+
+---
+
+## 6. ダミーデータ作成
+
+開発・動作確認用に、ダミーユーザーとダミータスクを自動作成できます。
+
+```bash
+cd backend
+source venv/bin/activate
+python manage.py create_dummy_data
+```
+- 既存データへの影響：既存ユーザー・タスクは上書きされません
+
+---
+
+## 7. 主な機能・UI/UX
+
+- カンバン方式（ToDo/進行中/レビュー待ち/完了）でタスクをドラッグ＆ドロップ移動
+- ガントチャート表示
+- 担当者バッジ・フィルター
+- タスク編集・削除・詳細モーダル
+- マイページ（プロフィール編集、通知、活動履歴、アカウント設定）
+
+---
+
+## 8. マイページ機能
+
+- プロフィール情報の表示・編集
+- パスワード変更
+- 自分のタスク一覧（担当・作成タスク、ステータス別タブ・フィルター）
+- 通知・お知らせ一覧
+- アカウント設定（メール通知ON/OFF、ダークモード切替、退会機能）
+- 活動履歴
+
+---
+
+## 9. 管理者ページ（Django Admin）
+
+- `/admin/` で管理者用GUI
+- ユーザー・タスク・通知・活動履歴などの管理
+- スーパーユーザーは `python manage.py createsuperuser` で作成
+
+---
+
+## 10. 自動テスト
+
+- 主要APIの自動テストあり
+- 実行方法：
+
+```bash
+cd backend
+source venv/bin/activate
+python manage.py test
+```
+
+---
+
+## 11. 運用・開発フロー
+
+- ブランチ運用ルール（main, develop, feature/xxx, bugfix/xxx）
+- マイグレーション・DB管理（バックアップ必須、不要ファイル削除、リセット時の記録）
+- デプロイ・ロールバック手順はdocs/参照
+- 依存パッケージはバージョン固定、pip-auditで脆弱性チェック
+
+---
+
+## 12. ドキュメント・設計資料
+
+- docs/配下に「機能一覧」「UIイメージ」「要件定義書」などを随時更新
+- 画面遷移図やAPI仕様書もdocs/に格納
+
+---
+
+## 13. 改善・今後の展望（推奨）
+
+- APIエンドポイント一覧やレスポンス例をまとめたドキュメント追加
+- Docker利用時の.envサンプルやdocker-composeの詳細手順追加
+- テストカバレッジの目標値や現状のカバレッジをREADMEやdocsに明記
+- i18n（多言語化）やアクセシビリティ対応の方針も検討
+
+---
+
+## 14. お問い合わせ・コントリビュート
+
+- バグ報告・機能要望はIssueへ
+- コントリビュート歓迎！ブランチ運用ルールを守ってPRを作成してください
 
 ---
 

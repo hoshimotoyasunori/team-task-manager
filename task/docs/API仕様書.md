@@ -1,4 +1,4 @@
-# API仕様書（最新版）
+# API仕様書（最新版/PostgreSQL・Docker Compose対応）
 
 ## ユーザー関連
 
@@ -58,5 +58,11 @@
 
 ### ユーザー一覧
 - GET `/api/users/`
+
+---
+
+## インフラ・運用
+- DBはPostgreSQL（Docker Composeで一貫運用）
+- 既存データ移行（SQLite→PostgreSQL）手順をサポート
 
 ...（必要に応じて追記）... 

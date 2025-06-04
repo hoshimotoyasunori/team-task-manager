@@ -18,32 +18,31 @@ class TaskAPITests(APITestCase):
             'title': 'Test Task',
             'description': 'Test Description',
             'assignee': self.user.id,
-            'creator': self.user.id,
-            'status': 'todo'
+            'status': 'not_started'
         }
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(Task.objects.filter(title='Test Task').exists())
 
     def test_get_task_list(self):
-        Task.objects.create(title='Task1', assignee=self.user, creator=self.user, status='todo')
+        Task.objects.create(title='Task1', assignee=self.user, creator=self.user, status='not_started')
         url = reverse('task-list-create')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertGreaterEqual(len(response.data), 1)
 
     def test_update_task(self):
-        task = Task.objects.create(title='Task2', assignee=self.user, creator=self.user, status='todo')
+        task = Task.objects.create(title='Task2', assignee=self.user, creator=self.user, status='not_started')
         url = reverse('task-detail', args=[task.id])
-        data = {'title': 'Task2 Updated', 'status': 'doing'}
+        data = {'title': 'Task2 Updated', 'status': 'in_progress'}
         response = self.client.patch(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         task.refresh_from_db()
         self.assertEqual(task.title, 'Task2 Updated')
-        self.assertEqual(task.status, 'doing')
+        self.assertEqual(task.status, 'in_progress')
 
     def test_delete_task(self):
-        task = Task.objects.create(title='Task3', assignee=self.user, creator=self.user, status='todo')
+        task = Task.objects.create(title='Task3', assignee=self.user, creator=self.user, status='not_started')
         url = reverse('task-detail', args=[task.id])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
